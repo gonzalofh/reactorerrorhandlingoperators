@@ -1,0 +1,28 @@
+plugins {
+	id 'java'
+	id 'org.graalvm.buildtools.native' version '0.9.18'
+}
+
+group = 'com.gonzalofh'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+	implementation "io.projectreactor:reactor-core:3.5.3"
+	testImplementation "org.junit.jupiter:junit-jupiter:5.8.1"
+	testImplementation "io.projectreactor:reactor-test:3.5.3"
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+tasks.named("jar") {
+	enabled = false
+}
